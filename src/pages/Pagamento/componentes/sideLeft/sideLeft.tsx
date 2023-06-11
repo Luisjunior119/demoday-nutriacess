@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Input } from '../../../../components/input/input'
 import { Text } from '../../../../components/text/text'
-import { Container, ContentInput, DivRadioPlan, DivTypePlan, Inputstyle, SectionPlan} from './sideLeft.styles'
+import { Container, DivTitulo, Alinhamento, ContentInput, DivRadioPlan, DivTypePlan, Inputstyle, SectionPlan} from './sideLeft.styles'
 import { StyledInput } from '../../../formulario/components/InputCheck/InputCheck.styles'
 
 export const SideLeft = () => {
@@ -32,10 +32,14 @@ export const SideLeft = () => {
 
     return (
         <Container>
+           
+             <DivTitulo>
             <Text color='preto' size='24' height={50} weight={600}>Método de Pagamento</Text>
 
             <Text color='preto' size='20' height={31} weight={600}>Cartão de Crédito</Text>
+            </DivTitulo>
 
+            <Alinhamento>
             <Inputstyle>
                 <Input label='' onChange={handleNometitularChange} placeholder='Nome do titular do cartão' value={nometitular} type='text'></Input>
             </Inputstyle>
@@ -51,6 +55,7 @@ export const SideLeft = () => {
                     <Input label='' onChange={handleCodsChange} placeholder='Cód. de segurança' value={cods} />
                 </Inputstyle>
             </ContentInput>
+            </Alinhamento>
 
             <DivTypePlan>
                 <Text color='preto' size='20' height={30} weight={200}>Qual plano você deseja?</Text>
