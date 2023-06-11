@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { IContainer, IHeader } from "./modal.types";
+import media from "styled-media-query";
 
 const slideIn = keyframes`
   from {
@@ -61,6 +62,8 @@ export const Content = styled.div`
   padding: 32px;
 
   overflow-y: scroll;
+
+  
 `;
 
 export const Header = styled.div<IHeader>`

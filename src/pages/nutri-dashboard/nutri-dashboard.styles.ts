@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { DateRange } from "react-date-range";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
@@ -37,8 +38,6 @@ export const Scheduling = styled.div`
   padding: 24px;
 
   justify-content: center;
-
-  margin-bottom: 32px;
 `;
 
 export const DatePickerWrapper = styled.div`
@@ -46,6 +45,11 @@ export const DatePickerWrapper = styled.div`
   flex-direction: column;
 
   align-items: flex-end;
+  margin: 50px;
+
+  ${media.lessThan("medium")`
+    margin-top: 70px;
+  `}
 `;
 
 export const UserDetails = styled.div`
@@ -80,12 +84,21 @@ export const ButtonContent = styled.div`
   gap: 8px;
 
   margin-top: 32px;
+
+  ${media.lessThan("medium")`
+    display: flex;
+    justify-content: space-around;
+  `}
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
 
   width: 20%;
+  
+  ${media.lessThan("medium")`
+    width: 50%;
+  `}
 `;
 
 export const Form = styled.div`
@@ -103,6 +116,11 @@ export const InputWrapper = styled.div`
   justify-content: center;
 
   gap: 16px;
+
+  ${media.lessThan("medium")`
+    display: flex;
+    flex-direction: column;
+  `}
 `;
 
 export const DatePicker = styled(DateRange).attrs(({ theme }) => ({
