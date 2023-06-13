@@ -49,7 +49,7 @@ export const Inputstyle = styled.div`
   
   ${media.lessThan("medium")`
     margin: 0;
-    max-width: 54%;
+    max-width: 100%;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -73,6 +73,10 @@ export const ContentInput = styled.div`
 
     ${media.lessThan("medium")`
     gap: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   `}
 `;
 
