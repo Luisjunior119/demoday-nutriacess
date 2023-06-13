@@ -24,8 +24,7 @@ export const Imagem = styled.div`
     margin-top: -100px;
 
     ${media.lessThan("medium")`
-        display: none;
-        margin-top: -170px ;
+        margin-top: -80px ;
 `}
 `;
 
@@ -34,7 +33,7 @@ export const SectionMeet = styled.div`
 
     align-items: center;
     justify-content: center;
-    gap:100px;
+    
 
     ${media.lessThan("medium")`
    flex-direction: column;
@@ -57,7 +56,7 @@ export const SectionText = styled.div`
 
     ${media.lessThan("medium")`
     width: 300px;
-    margin-top: 70px;
+    margin-top: 20px;
 `}
 `;
 
