@@ -11,8 +11,10 @@ import Logo from "../../components/logo/logo";
 import { Text } from "../../components/text/text";
 import { Input } from "../../components/input/input";
 import Button from "../../components/button/button";
+import { useAuth } from "../../hooks/useAuth";
 
-const SignInUser: React.FC = () => {
+const SignInUserC: React.FC = () => {
+  const { SignInUser } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -23,6 +25,15 @@ const SignInUser: React.FC = () => {
   const handleSenhaChange = (value: string) => {
     setSenha(value);
   };
+
+  const handleSignInUser = () => {
+    const user: any = {
+      mail: email,
+      password: senha
+    };
+
+    SignInUser(user)
+  }
 
   return (
     <Container>
@@ -55,7 +66,12 @@ const SignInUser: React.FC = () => {
         </InputWrapper>
 
         <ButtonWrapper>
-          <Button title="Entrar" variant="primario" xs />
+          <Button
+            title="Entrar"
+            variant="primario"
+            xs
+            onClick={() => handleSignInUser()}
+          />
         </ButtonWrapper>
 
         <Text height={21} weight={400} size="16" color="vinho">
@@ -66,4 +82,4 @@ const SignInUser: React.FC = () => {
   );
 };
 
-export default SignInUser;
+export default SignInUserC;

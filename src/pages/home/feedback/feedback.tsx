@@ -35,9 +35,9 @@ const Feedback = () => {
           slidesPerView={3}
           onSwiper={(swiper) => setSwiperInstance(swiper)}
         >
-          {mockFeedback.map((feedback) => {
+          {mockFeedback.map((feedback, idx) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={`key_${idx}`}>
                 <CardFeedback
                   description={feedback.description}
                   image={feedback.image}

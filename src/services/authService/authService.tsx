@@ -1,7 +1,17 @@
-import { TEsp, TUser } from "../../contexts/authContext/authContext.types";
+import { api } from "../../config/api";
+import { LUser, TEsp, TUser } from "../../contexts/authContext/authContext.types";
 
-export function signUp(user: TUser): void {
+export function signUpUser(user: TUser): void {
   localStorage.setItem("@user", JSON.stringify(user));
+}
+
+export function signInUser(user: LUser): void {
+  api.post('login', {mail: user.mail, password: user.password})
+  .then(async resp => {
+    console.log(resp)
+}).catch(error => {
+    console.log(error)
+})
 }
 
 export function getUser() {

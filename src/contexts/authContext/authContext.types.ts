@@ -7,6 +7,11 @@ export type TUser = {
   socialName: string;
 };
 
+export type LUser = {
+  mail: string;
+  password: string;
+};
+
 export type TEsp = {
   crn: string;
   password: string;
@@ -17,7 +22,8 @@ export interface IAuthContext {
   useresp: TEsp;
   isLogged: boolean;
   signInEsp: (useresp: TEsp) => void;
-  signUpUser: (user: TUser) => void;
+  SignInUser: (user: LUser) => void;
+  SignUpUser: (user: TUser) => void;
 }
 
 export interface IAuthContextProvider {

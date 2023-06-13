@@ -17,8 +17,8 @@ import {
   InputWrapper,
 } from "./signUpUser.styles";
 
-const SignUpUser: React.FC = () => {
-  const { signUpUser } = useAuth();
+const SignUpUserC: React.FC = () => {
+  const { SignUpUser } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -57,7 +57,7 @@ const SignUpUser: React.FC = () => {
         socialName,
       };
 
-      signUpUser(user);
+      SignUpUser(user);
 
       navigate("/formulario");
     } else {
@@ -141,4 +141,4 @@ const SignUpUser: React.FC = () => {
   );
 };
 
-export default SignUpUser;
+export default SignUpUserC;
