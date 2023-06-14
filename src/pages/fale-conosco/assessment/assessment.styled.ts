@@ -3,6 +3,10 @@ import media from "styled-media-query";
 
 export const Container = styled.div`
   width: 100%;
+
+  ${media.lessThan("medium")`
+    padding:10px;
+  `}
 `;
 
 export const Title = styled.div`
