@@ -13,6 +13,10 @@ export const Title = styled.div`
   ${media.lessThan("medium")`
     padding-left: 50px;
    font-size: 250%;
+
+   span{
+    font-size: 1.5rem;
+   }
   `}
 `;
 
@@ -24,6 +28,9 @@ export const DivGeneral = styled.div`
   ${media.lessThan("medium")`
     flex-direction: column;
     align-items: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `}
 `;
 
@@ -39,6 +46,11 @@ export const DivNumber = styled.div`
   ${media.lessThan("medium")`
     width: 100%;
     margin-bottom: 20px;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
   `}
 `;
 

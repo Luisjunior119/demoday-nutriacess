@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   ${media.lessThan("medium")`
     height: auto;
-    padding: 15px;
+    padding: 15px 15px 0 15px;
   `}
 `;
 
@@ -41,6 +41,17 @@ export const SubTitle = styled.div`
   ${media.lessThan("medium")`
     width: 100%;
     margin-top: 40px;
+   text-align: center;
+    justify-content: center;
+  `}
+`;
+
+export const DivResponsive = styled.div`
+
+  ${media.lessThan("medium")`
+  margin-top: 100px;
+    background-color: red;
+    padding: 100px;
   `}
 `;
 
@@ -49,6 +60,6 @@ export const ImgStyled = styled.img`
   margin-top: 196px;
 
   ${media.lessThan("medium")`
-    margin-top: 40px;
+  margin-top: 40px;
   `}
 `;

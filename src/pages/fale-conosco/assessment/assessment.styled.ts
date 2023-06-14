@@ -11,9 +11,12 @@ export const Title = styled.div`
   justify-content: center;
   align-items: center;
 
+
   ${media.lessThan("medium")`
-    font-size: 1.5rem;
     margin-top: 30px;
+    span {
+      font-size: 1rem;
+    }
   `}
 `;
 
@@ -51,6 +54,7 @@ export const DivInput = styled.div`
 
   ${media.lessThan("medium")`
     width: 100%;
+   
   `}
 `;
 
@@ -60,6 +64,11 @@ export const ContainerInput = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+
+  ${media.lessThan("medium")`
+   max-width: 100% ;
+   margin: 0 24px ;
+  `}
 `;
 
 export const ButtonDiv = styled.div`
