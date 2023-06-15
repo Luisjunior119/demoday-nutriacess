@@ -40,10 +40,10 @@ export const ProfileUser = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const [name, setName] = useState(user.name);
+  const [name, setName] = useState(user.nome_completo);
   const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState(user.password);
-  const [socialName, setSocialName] = useState(user.socialName);
+  const [senha, setSenha] = useState(user.senha);
+  const [socialName, setSocialName] = useState(user.nome_social);
   const [age, setAge] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -57,7 +57,7 @@ export const ProfileUser = () => {
       <Cover>
         <UserDetails>
           <Text color="branco" height={42} size="36" weight={500}>
-            Dashboard - olá {user.socialName}
+            Dashboard - olá {user.nome_completo}
           </Text>
           <UserWrapper>
             <User
@@ -123,8 +123,8 @@ export const ProfileUser = () => {
             <Input label="Email" onChange={(e) => setEmail(e)} value={email} />
             <Input
               label="Senha"
-              onChange={(e) => setPassword(e)}
-              value={password}
+              onChange={(e) => setSenha(e)}
+              value={senha}
               type="password"
             />
           </InputWrapper>
