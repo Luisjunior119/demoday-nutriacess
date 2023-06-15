@@ -19,7 +19,9 @@ export const InputStyled = styled.input`
     padding: 24px 20px;
     width: 700px;
     margin-left: 400px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
   `}
 

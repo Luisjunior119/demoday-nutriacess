@@ -21,7 +21,15 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.span`
-  
+  ${media.lessThan("medium")`
+  display: flex;
+    align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 1.5rem;
+  }
+  `} 
 `;
 
 export const Description = styled.p`
@@ -34,6 +42,10 @@ export const ContentButton = styled.div`
   ${media.lessThan("medium")`
     
     margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   `}
 `;
 
