@@ -1,44 +1,71 @@
+import axios from "axios";
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import _ from "validator";
+import Button from "../../components/button/button";
+import { Input } from "../../components/input/input";
+import Logo from "../../components/logo/logo";
+import { Text } from "../../components/text/text";
+import { RegisterEsp } from "../../contexts/authContext/authContext.types";
 import {
   ButtonWrapper,
   Container,
   Form,
   InputWrapper,
 } from "./signUpEsp.styles";
-import Logo from "../../components/logo/logo";
-import { Text } from "../../components/text/text";
-import { Input } from "../../components/input/input";
-import Button from "../../components/button/button";
 
 const SignInSpecialist: React.FC = () => {
+  const navigate = useNavigate();
+
   const [crn, setCRN] = useState("");
-  const [senha, setSenha] = useState("");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [socialName, setSocialName] = useState("");
+  const [senha, setSenha] = useState("");
+  const [nome_completo, setNomeCompleto] = useState("");
+  const [nome_social, setNomeSocial] = useState("");
 
-  const handleChangeCRN = (value: string) => {
-    setCRN(value);
-  };
+  function validateFields() {
+    if (
+      _.isEmpty(nome_completo) ||
+      _.isEmpty(email) ||
+      _.isEmpty(senha) ||
+      _.isEmpty(nome_social) ||
+      _.isEmpty(crn)
+    ) {
+      return false;
+    }
 
-  const handleSenhaChange = (value: string) => {
-    setSenha(value);
-  };
+    if (!_.isEmail(email)) return false;
+  }
 
+  async function handleRegisterEsp() {
+    const isValidated = validateFields();
+    
+    if (isValidated) {
+      const esp: RegisterEsp = {
+        email,
+        senha,
+        nome_completo,
+        nome_social,
+        crn,
+      };
+      console.log(esp);
+      try {
+        const response = await axios.post(
+          "http://localhost:3003/nutricionista/cadastrar", esp
+        );
 
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
-  };
+        const token = response.data.result;
 
-  const handleNameChange = (value: string) => {
-    setName(value);
-  };
+        localStorage.setItem("token", token);
 
-  const handleSocialnameChange = (value: string) => {
-    setSocialName(value);
-  };
-
+        navigate("/dashboard-nutri");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Campos incorretos");
+    }
+  }
 
   return (
     <Container>
@@ -52,19 +79,19 @@ const SignInSpecialist: React.FC = () => {
         <InputWrapper>
           <Input
             label="Nome:"
-            value={name}
+            value={nome_completo}
             placeholder="Digite seu nome"
             type="text"
-            onChange={handleNameChange}
+            onChange={(value: string) => setNomeCompleto(value)}
           />
         </InputWrapper>
         <InputWrapper>
           <Input
             label="Nome Social:"
-            value={socialName}
+            value={nome_social}
             placeholder="Digite sua nome social"
             type="text"
-            onChange={handleSocialnameChange}
+            onChange={(value: string) => setNomeSocial(value)}
           />
         </InputWrapper>
 
@@ -74,7 +101,7 @@ const SignInSpecialist: React.FC = () => {
             value={email}
             placeholder="Digite seu email"
             type="text"
-            onChange={handleEmailChange}
+            onChange={(value: string) => setEmail(value)}
           />
         </InputWrapper>
 
@@ -84,7 +111,7 @@ const SignInSpecialist: React.FC = () => {
             value={senha}
             placeholder="Digite sua senha"
             type="password"
-            onChange={handleSenhaChange}
+            onChange={(value: string) => setSenha(value)}
           />
         </InputWrapper>
 
@@ -94,12 +121,17 @@ const SignInSpecialist: React.FC = () => {
             value={crn}
             placeholder="Digite seu CRN"
             type="number"
-            onChange={handleChangeCRN}
+            onChange={(value: string) => setCRN(value)}
           />
         </InputWrapper>
 
         <ButtonWrapper>
-          <Button title="Entrar" variant="primario" xs />
+          <Button 
+          xs
+          title="Entrar" 
+          variant="primario"
+          onClick={() => handleRegisterEsp()}
+          />
         </ButtonWrapper>
 
         <Text height={21} weight={400} size="16" color="vinho">

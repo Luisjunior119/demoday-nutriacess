@@ -7,9 +7,22 @@ export type TUser = {
   nome_social: string;
 };
 
+export type LoginUser = {
+  email: string;
+  senha: string;
+}
+
 export type TEsp = {
   crn: string;
-  password: string;
+  senha: string;
+};
+
+export type RegisterEsp = {
+  crn: string;
+  email: string;
+  senha: string;
+  nome_completo: string;
+  nome_social: string;
 };
 
 export interface IAuthContext {
