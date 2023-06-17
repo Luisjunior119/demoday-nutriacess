@@ -5,6 +5,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   
+  ${media.lessThan("medium")`
+   
+  `}
 `;
 
 export const InputStyled = styled.input`
@@ -18,19 +21,20 @@ export const InputStyled = styled.input`
   ${media.lessThan("medium")`
     padding: 24px 20px;
     width: 700px;
-    margin-left: 400px;
+    margin-left: 0; 
+    margin-right: 300px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    
   `}
 
   ${media.lessThan("small")`
-   
     width: 290px;
-    margin-left: -45px;
+    margin-left: 0; 
+    margin-right: -45px; 
   `}
 `;
+
 
 export const Button = styled.button`
   background-color: ${({ theme }) => theme.Colors.vinho};
