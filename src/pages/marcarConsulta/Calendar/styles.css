@@ -1,0 +1,48 @@
+/* Font Family */
+/* Borda arredondada */
+.react-calendar__tile {
+  border: solid 2px #FFF !important;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+.react-calendar__tile:hover {
+  background-color: none !important;
+}
+body > #root > .container > main .calendarBox {
+  padding: 0px 5px 15px 5px;
+  background-color: #FFF;
+  border: solid 1px #D0D0D0;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+body > #root > .container > main .calendarBox * {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+body > #root > .container > main .calendarBox > .react-calendar {
+  width: 100%;
+  border: none !important;
+}
+body > #root > .container > main .calendarBox .react-calendar .dis {
+  cursor: default;
+  color: #333;
+  background-color: #F0F0F0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import ImagemPlanos from "../../assets/imagemplanos.svg"
 import Footer from "../../components/footer/footer"
 import Header from "../../components/header/header"
@@ -6,7 +7,10 @@ import { CardPlans } from "../home/plans/cardplans"
 
 import { Container, HeaderPlans, Imagem, SectionMeet, SectionPlans, SectionText } from "./planos.styles"
 
+
 export const Planos = () => {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <Header />
@@ -23,7 +27,7 @@ export const Planos = () => {
                 </SectionText>
             </SectionMeet>
 
-            <SectionPlans>
+            <SectionPlans onClick={() => navigate("/pagamento-planos")}>
                 <CardPlans />
             </SectionPlans>
 

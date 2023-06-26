@@ -2,9 +2,19 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
+
+export const PhotoUser = styled.div`
+`;
+
+export const IconPhoto = styled.button`
+  background-color: transparent;
+`
+
+export const ButtonPhoto = styled.div`
+margin-top: 70px;
+margin-left: -50px;
+`
 
 export const User = styled.img`
   height: 120px;
@@ -22,7 +32,9 @@ export const TextWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-export const Info = styled.div``;
+export const Info = styled.div`
+  margin-left: 20px;
+`;
 
 export const UserWrapper = styled.div`
   display: flex;
@@ -155,6 +167,9 @@ export const PlanWrapper = styled.div`
     gap: 30px;
     align-items: flex-end;
 
+    margin-top: 20px;
+
+
     ${media.lessThan("medium")`
       display: flex;
       flex-direction: column;
@@ -179,9 +194,24 @@ export const SectionPlan = styled.div`
 export const SectionDiet = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
+    justify-content: end;
 `;
 
 export const QrCode = styled.div`
-    margin-bottom: 30px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: end;
+    align-items: center;
+    
+
+    img {
+      width: 25%;
+    }
 `;
+
+export const ButtonDieta = styled.a`
+
+    align-items: center;
+`;
+

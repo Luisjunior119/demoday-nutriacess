@@ -1,12 +1,25 @@
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 export const Container = styled.div`
     display: flex;
-    margin: 20px;
+    
+    gap:20px;
+
+    ${media.lessThan("medium")`
+      margin-top: 36px;
+
+      align-items: center;
+      flex-direction: column;
+  `}
 `;
 
 export const Imagem = styled.div`
-  margin-right: 20px;
+  width: 150px;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const InformationNutri = styled.div`

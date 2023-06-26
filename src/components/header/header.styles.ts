@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.header`
   display: flex;
@@ -16,3 +17,4 @@ export const ButtonContent = styled.div`
   display: flex;
   gap: 24px;
 `;
+

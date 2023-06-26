@@ -1,0 +1,39 @@
+@import './styles/functions.less';
+@import './styles/colors.less';
+@import './styles/variables.less';
+
+.react-calendar__tile {
+	border: solid 2px @white !important;
+	.borderRadius(7px);
+
+	&:hover{
+		background-color: none !important;
+	}
+}
+
+body > #root {
+	> .container > main  .calendarBox {
+		padding: 0px 5px 15px 5px;
+		background-color: @white;
+		border: solid 1px @white-medium;
+		.borderRadius(10px);
+
+		* {
+			.noSelect();
+		}
+
+		> .react-calendar{
+			width: 100%;
+			border:none !important;
+		}
+
+		.react-calendar {
+			.dis {
+				cursor: default;
+				color: @black-dark;
+				background-color: @white-light;
+				.transition();
+			}
+		}
+	}
+}
