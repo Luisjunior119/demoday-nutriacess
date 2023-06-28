@@ -27,6 +27,15 @@ export enum FoodRestrictionEnum {
   vegan = "Sou vegano(a)",
 }
 
+export enum ALERGIA {
+  GLUTEN = "gluten",
+  LATICINIOS = "laticinios",
+  AMENDOIM = "amendoim",
+  PEIXES = "peixes",
+  OVOS = "ovos",
+  MARISCOS = "mariscos",
+}
+
 export enum PreparationTimeEnum {
   yes = "Sim",
   not = "Não",
@@ -108,3 +117,18 @@ export type TSignInUserResponse = {
 export type TSignInEspResponse = {
   usereps: TEsp1;
 };
+
+export enum SpecialtyNutriEnum {
+  sport = "Nutrição Esportiva",
+  functional = "Nutrição Funcional",
+  esthetics = "Nutrição Estética",
+  integrative  = "Nutrição Integrativa",
+  maternalChild  = "Nutrição Materno-Infantil",
+  family = "Nutrição Familiar"
+}
+
+export enum PlanEnum {
+  plus1 = "plus1",
+  familia = "familia",
+  plus2 = "plus2"
+}

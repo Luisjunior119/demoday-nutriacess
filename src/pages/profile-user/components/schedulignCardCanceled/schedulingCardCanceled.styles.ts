@@ -29,6 +29,3 @@ export const PatientInfo = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-export const LinkButton = styled.a`
-`
