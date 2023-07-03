@@ -46,7 +46,8 @@
 
 ## Instalação
 
-Instale nosso projeto com npm
+Instale nosso projeto com npm <br>
+ABRIR PELA BRANCH HOMOLOG
 
 ```
   npm install
@@ -54,7 +55,9 @@ Instale nosso projeto com npm
 ```
 
 Instale o backend do projeto com npm <br>
-link do github do backend: https://github.com/EricaInaciadeLima/api_nutriacess
+link do github do backend: https://github.com/EricaInaciadeLima/api_nutriacess <br>
+ABRIR PELA BRANCH MAIN
+
 
 ```
   npm install
