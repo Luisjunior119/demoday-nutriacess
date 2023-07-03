@@ -26,9 +26,9 @@ export async function signInUser(
   const response = await api.post("/cliente/conectar", user);
   api.defaults.headers.common.Authorization = `${response.data.token}`;
   loginUser(response.data.user.data, response.data.token);
-
-  return response.data;
+  return response.data.user;
 }
+
 export async function signInEsp(
   useresp: ISignInEps,
   loginEsp: any
@@ -39,6 +39,7 @@ export async function signInEsp(
 
   return response.data;
 }
+
 export function getUser() {
   const user = localStorage.getItem("@user") as string;
   return JSON.parse(user);
@@ -48,3 +49,14 @@ export function getEsp() {
   const esp = localStorage.getItem("@esp") as string;
   return JSON.parse(esp);
 }
+
+// export async function confirmPayment(
+//   useresp: ISignInEps,
+//   loginEsp: any
+// ): Promise<TSignInEspResponse> {
+//   const response = await api.post("/planos/criar", useresp);
+//   api.defaults.headers.common.Authorization = `${response.data.token}`;
+//   loginEsp(response.data.user.data, response.data.token);
+
+//   return response.data;
+// }

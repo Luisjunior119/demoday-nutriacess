@@ -1,55 +1,63 @@
+import _ from 'lodash';
 import { useState } from 'react';
-import validator from 'validator';
 import { Input } from '../../../../components/input/input';
+import { StyledInput } from '../../../../components/input/input.styles';
 import { Text } from '../../../../components/text/text';
 import { PlanEnum } from '../../../../services/authService/authService.types';
-import { StyledInput } from '../../../formulario/components/InputCheck/InputCheck.styles';
-import { Container, ContentInput, DivRadioPlan, DivTypePlan, Inputstyle, SectionPlan } from './sideLeft.styles';
-import { ResumePag } from '../resumepag/resumepag';
+import {
+  Container,
+  ContentInput,
+  DivRadioPlan,
+  DivTypePlan,
+  Inputstyle,
+  SectionPlan,
+} from './sideLeft.styles';
 
+interface SideLeftProps {
+  setValorPlano: (valorPlano: number | any) => void;
+  valorPlano: number; }
 
-export interface SideLeftProps {
-  setValorPlano: (valorPlano: string) => void;
-  valorPlano: string;
+interface Errors {
+  nometitular?: string;
+  ncartao?: number;
+  validade?: number;
+  cods?: number;
 }
 
 export const SideLeft = ({ setValorPlano, valorPlano }: SideLeftProps) => {
-  const [plan, setPlan] = useState(PlanEnum.plus1);
+  const initialValue: PlanEnum | any= 50;
+
+  const [errors, setErrors] = useState<Errors | null>(null);
+  const [plan, setPlan] = useState<PlanEnum>(initialValue);
   const [nometitular, setNometitular] = useState('');
   const [ncartao, setNcartao] = useState('');
   const [validade, setValidade] = useState('');
   const [cods, setCods] = useState('');
 
   function validateFields() {
-    if (
-      validator.isEmpty(plan) ||
-      validator.isEmpty(nometitular) ||
-      validator.isEmpty(ncartao) ||
-      validator.isEmpty(validade) ||
-      validator.isEmpty(cods)
-    ) {
-      return false;
-    }
-    if (!validator.isAlpha(nometitular)) return false;
-    if (!validator.isNumeric(ncartao)) return false;
-    if (!validator.isNumeric(validade)) return false;
-    if (!validator.isNumeric(cods)) return false;
-    return true;
+    let errorsArr: any = null;
+
+    if (_.isEmpty(ncartao))
+      errorsArr = { ...errorsArr, nome_completo: "Número do cartão não pode estar vazio" };
+    if (_.isEmpty(validade)) errorsArr = { ...errorsArr, email: "Validade não pode estar vazio" };
+    if (_.isEmpty(cods)) errorsArr = { ...errorsArr, senha: "Código não pode estar vazio" };
+
+    setErrors(errorsArr);
+    return errorsArr;
   }
 
-  function updatePlan(plan: PlanEnum) {
-    let valorPlano = '';
-
-    if (plan === PlanEnum.plus1) {
-      valorPlano = 'R$50,00';
-    } else if (plan === PlanEnum.plus2) {
-      valorPlano = 'R$100,00';
-    } else if (plan === PlanEnum.familia) {
-      valorPlano = 'R$120,00';
+  function updatePlan(selectedPlan: PlanEnum) {
+    let valorPlano = initialValue; 
+    if (selectedPlan === PlanEnum.plus1) {
+      valorPlano = 50.0;
+    } else if (selectedPlan === PlanEnum.plus2) {
+      valorPlano = 100.0;
+    } else if (selectedPlan === PlanEnum.familia) {
+      valorPlano = 120.0;
     }
 
-    setPlan(plan);
-    setValorPlano(valorPlano); // Aqui atualizamos o valor do plano
+    setPlan(selectedPlan);
+    setValorPlano(valorPlano ); 
   }
 
   return (
@@ -66,16 +74,18 @@ export const SideLeft = ({ setValorPlano, valorPlano }: SideLeftProps) => {
           type="text"
           placeholder="Nome do titular do cartão"
           value={nometitular}
+          className={errors && errors.nometitular ? 'error' : ''}
           onChange={(value: string) => {
-            const onlyLetters = value.replace(/[^A-Za-z]/g, '');
-            setNometitular(onlyLetters);
+            setNometitular(value);
+            setErrors({ ...errors, nometitular: '' });
           }}
         />
+        {errors && errors.nometitular ? <small>{errors.nometitular}</small> : null}
       </Inputstyle>
       <Inputstyle>
         <Input
           label="Número do cartão"
-          placeholder="0000000"
+          placeholder="1234 5678 9101 1121"
           value={ncartao}
           onChange={(value: string) => {
             if (value === '') {
@@ -169,9 +179,8 @@ export const SideLeft = ({ setValorPlano, valorPlano }: SideLeftProps) => {
           </Text>
         </SectionPlan>
       </DivRadioPlan>
-     
     </Container>
   );
 };
 
-export default SideLeft;
+

@@ -19,7 +19,7 @@ import {
 
 export const Formulario = () => {
   const { form, setForm } = useForm();
-  const { user, token } = useAuth();
+  const { user, token, setPerfil } = useAuth();
 
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
@@ -35,15 +35,14 @@ export const Formulario = () => {
   };
 
   async function handleSubmitForm() {
-    await submitForm(form, token);
+    let perfil = await submitForm(form, token);
+    setPerfil(perfil)
+    navigate("/profile-user")
   }
 
   async function handleSubmit() {
-    if (step !== 2) {
-      setStep(step + 1);
-    } else {
-      await handleSubmitForm();
-    }
+    if (step !== 2) setStep(step + 1);
+    else await handleSubmitForm();
   }
 
   useEffect(() => {

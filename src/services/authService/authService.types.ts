@@ -5,8 +5,8 @@ export interface IGetUser {
 
 export enum ObjectiveEnum {
   lost_weight = "Perder peso",
-  maintain_my_current = "Manter meu peso atual",
-  gain_muscular_mass = "Ganhar massa muscular",
+  maintain_my_current = "Manter peso",
+  gain_muscular_mass = "Ganhar massa",
 }
 
 export enum GenderEnum {
@@ -17,14 +17,14 @@ export enum GenderEnum {
 
 export enum FeedingEnum {
   sedentary = "Sedentarismo",
-  moderate = "Atividade física moderada",
-  intensive = "Atividade física intensiva",
+  moderate = "Atividade fisica moderada",
+  intensive = "Atividade fisica intensa",
 }
 
 export enum FoodRestrictionEnum {
   any_thing = "Qualquer coisa",
-  vegetarian = "Sou vegetariano(a)",
-  vegan = "Sou vegano(a)",
+  vegetarian = "Vegetariano",
+  vegan = "Vegano",
 }
 
 export enum ALERGIA {
@@ -61,7 +61,26 @@ export type TForm = {
   tempo_preparo: PreparationTimeEnum;
   foto: AvatarsEnum;
   id_cliente: string;
+  plano: PlanEnum;
 };
+export enum AVALIACAO {
+  um = '1',
+  dois = '2',
+  tres = '3',
+  quatro = '4',
+  cinco = '5',
+  seis = '6',
+  sete = '7',
+  oito = '8',
+  nove = '9',
+  dez = '10'
+}
+export type FaleConosco = {
+  avaliacao: AVALIACAO,
+  nome_usuario: string,
+  email: string,
+  mensagem: string
+}
 
 export type TSignInUser = {
   client: {
