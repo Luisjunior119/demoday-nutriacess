@@ -40,7 +40,7 @@
  </ul>
 </div>
 
-<a href="" target="_blank">
+<a href="http://nutriacess.com.br/" target="_blank">
 <img  width="24px" src="https://cdn.discordapp.com/attachments/773372240686350356/1054550330467164261/science.png" /> Visualizar o web site
 </a>
 
@@ -48,7 +48,15 @@
 
 Instale nosso projeto com npm
 
-```bash
+```
   npm install
   npm start
+```
+
+Instale o backend do projeto com npm <br>
+link do github do backend: https://github.com/EricaInaciadeLima/api_nutriacess
+
+```
+  npm install
+  npm run start:dev
 ```
