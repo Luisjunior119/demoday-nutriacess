@@ -20,7 +20,7 @@ export type TEsp = {
 };
 
 export type TPayment = {
-  //plan: string;
+  plan: string;
   nometitular: string;
   ncartao: number;
   validade: number;
@@ -29,6 +29,7 @@ export type TPayment = {
 
 export interface IAuthContext {
   user: TUser;
+  profile: any;
   useresp: TEsp;
   token: string;
   isLogged: boolean;
@@ -37,6 +38,7 @@ export interface IAuthContext {
   loginUser: (user: any, token: string) => void;
   loginEsp: (user: any, token: string) => void;
   logoutUser: Function;
+  setPerfil: Function;
 }
 
 export interface IAuthContextProvider {

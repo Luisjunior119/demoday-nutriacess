@@ -24,11 +24,8 @@ export const FirstStap = () => {
 
   const options = [
     { value: "Sedentarismo", label: "Sedentarismo" },
-    { value: "Atividade física moderada", label: "Atividade física moderada" },
-    {
-      value: "Atividade física intensiva",
-      label: "Atividade física intensiva",
-    },
+    { value: "Atividade fisica moderada", label: "Atividade física moderada" },
+    { value: "Atividade fisica intensa", label: "Atividade física intensiva" },
   ];
 
   function updateDesireValue(objetivo: ObjectiveEnum) {
@@ -172,6 +169,7 @@ export const FirstStap = () => {
         <Section>
           <Input
             type="number"
+            placeholder="Altura em cm"
             label="Sua altura:"
             onChange={(e) => updateHeightValue(e)}
             value={String(form.altura) || ""}
@@ -179,12 +177,14 @@ export const FirstStap = () => {
           <Input
             type="number"
             label="Sua idade:"
+            placeholder="Idade em anos"
             onChange={(e) => updateAgeValue(e)}
             value={String(form.idade) || ""}
           />
           <Input
             type="number"
             label="Seu peso:"
+            placeholder="Peso em kg"
             onChange={(e) => updateWeightValue(e)}
             value={String(form.peso) || ""}
           />
